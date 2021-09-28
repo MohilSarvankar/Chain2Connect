@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C2C - Login</title>
+    <link rel="stylesheet" href="/src/css/login_style.css">
+    <link rel="stylesheet" href="/src/css/header.css">
+    <link rel="shortcut icon" href="/src/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+    <div class="container2">
+        <a class="blue">
+            <div class="img">
+                <img src="/src/images/C2C.png" alt="Loading" width="45px">
+            </div>
+            <i class="eth">CHAIN2CONNECT</i>   
+        </a>
+        <i class="green">New way of Donating Money</i>
+        <i class="red">Smart Contract for NGOs and START-UPs using Blockchain</i>
+    </div>
+    </header>
+
+    <div class="image">
+        <div class="container">
+            <div class="inputs">
+                <b style="font-size: 25px; text-align: center;">Login Here</b> <br>
+                <label>Email Address</label>
+                <input type="email" placeholder="Email Address" class="input-field"/>
+                <label>Password</label>
+                <input type="password" placeholder="Password" class="input-field"/>              
+                <select name="user" id="usertype" style="margin: 10px 10px 10px 0px; width: 200px; height: 45px; width: 250px; border: 1px solid black;">
+                        <option value="no-user">Select Usertype</option>
+                        <option value="donor">Donar</option>
+                        <option value="ngo">NGO</option>
+                        <option value="beneficiary">Beneficiary</option>
+                        <option value="store">Store</option>
+                </select>
+                <div class="btn">
+                    <a href="login_page.html">
+                    <button>Login</button></a>
+                </div>
+                <p>Don't have an account? <a href="/src/html/usertype.html">Register Here</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

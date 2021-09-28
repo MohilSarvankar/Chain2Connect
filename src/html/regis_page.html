@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C2C - Donar Registration</title>
+    <link rel="stylesheet" href="/src/css/regis_style.css">
+    <link rel="stylesheet" href="/src/css/header.css">
+    <link rel="shortcut icon" href="/src/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container2">
+            <a class="blue">
+                <div class="img">
+                    <img src="/src/images/C2C.png" alt="Loading" width="45px">
+                </div>
+                <i class="eth">CHAIN2CONNECT</i>   
+            </a>
+            <i class="green">New way of Donating Money</i>
+            <i class="red">Smart Contract for NGOs and START-UPs using Blockchain</i>
+        </div>
+    </header>
+
+    <div class="image">
+
+        <div class="container"> 
+            <div class="inputs">  
+                <b style="font-size: 22px; text-align: center;">Donor Registration</b><br>
+                <label>Full Name</label>
+                <input id="yourname" type="text" placeholder="Your Name" class="input-field"/>
+                <label>Email Address</label>
+                <input id="emailaddress" type="email" placeholder="Email Address" class="input-field"/>
+                <label>Password</label>
+                <input id="passwd" type="password" placeholder="Password" class="input-field"/>
+                <div class="text">
+                    <input type="checkbox"/>
+                    <p>I accept the  <a href="#">terms & conditions</a></p>
+                </div>
+                <div class="btn">
+                    <a href="/src/html/login_page.html">
+                    <button id="createacc" >Create Account</button></a>
+                </div>
+                <p>Already have an account? <a href="/src/html/login_page.html">Login Here</a></p>
+            </div>
+        </div>
+    </div>
+<!-- 
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+
+    <script>
+        var contract;
+
+        $(document).ready(function(){
+            web3 = new Web3(web3.currentProvider);
+
+            var address = "0xd9145CCE52D386f254917e481eB44e9943F39138";
+            var abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_benName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_benMail",
+				"type": "string"
+			}
+		],
+		"name": "addBeneficiary",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_donorName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_donorMail",
+				"type": "string"
+			}
+		],
+		"name": "addDonor",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_eId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "_gotProducts",
+				"type": "bool"
+			}
+		],
+		"name": "addFeedback",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_ngoName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_ngoMail",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_ngoAdd",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_ngoDesc",
+				"type": "string"
+			}
+		],
+		"name": "addNgo",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_productName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_quantity",
+				"type": "uint256"
+			}
+		],
+		"name": "addProduct",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_progName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_progDesc",
+				"type": "string"
+			}
+		],
+		"name": "addProgram",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_storeName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_storeMail",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_storeAdd",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_storeDesc",
+				"type": "string"
+			}
+		],
+		"name": "addStore",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "benCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "beneficiaries",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "benId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "benName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "benMail",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "benAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_programId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_donationDesc",
+				"type": "string"
+			}
+		],
+		"name": "donateToNgo",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "donationCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "donations",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "donationId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "programId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "donationDesc",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "donorCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "donors",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "donorId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "donorName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "donorMail",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "donorAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "enrollCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_programId",
+				"type": "uint256"
+			}
+		],
+		"name": "enrollToProgram",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "enrollments",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "eId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "benId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "programId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "feedCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "feedbacks",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "feedId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "eId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "gotProducts",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "ngoCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "ngos",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "ngoId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "ngoName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "ngoMail",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "ngoAdd",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "ngoDesc",
+				"type": "string"
+			},
+			{
+				"internalType": "address payable",
+				"name": "ngoAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "orderCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "orders",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "orderId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "ngoId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "programId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "productId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "quantity",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "cost",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "delivered",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_orderId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_paymentDesc",
+				"type": "string"
+			}
+		],
+		"name": "payToStore",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "paymentCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "payments",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "paymentId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "orderId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "paymentDesc",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_programId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_productId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_quantity",
+				"type": "uint256"
+			}
+		],
+		"name": "placeOrder",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "productCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "products",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "productId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "productName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "quantity",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "storeId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "progCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "programs",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "programId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "ngoId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "progName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "progDesc",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "ongoing",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_programId",
+				"type": "uint256"
+			}
+		],
+		"name": "removeProgram",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "storeCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "stores",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "storeId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "storeName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "storeMail",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "storeAdd",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "storeDesc",
+				"type": "string"
+			},
+			{
+				"internalType": "address payable",
+				"name": "storeAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "users",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "userType",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "userId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+
+            contract = new web3.eth.Contract(abi,address);
+        })
+
+        $('#createacc').click(function(){
+            var fullname = "";
+            var email = "";
+            var pwd = "";
+
+            fullname = $('yourname').val();
+            email = $('emailaddress').val();
+            pwd = $('passwd').val();
+            
+            web3.eth.addDonor().then(function(accounts){
+                
+            })
+            
+        })
+
+    </script> -->
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* 1st container */
+.container2{
+  margin: 10px auto;
+  width: 1510px;
+  height: 70px;
+  border: 3px solid rgb(7, 19, 19);
+  border-radius: 10px;
+  padding: 9px;
+  background-color: rgb(19, 62, 75);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img{
+  position: absolute;
+
+}
+
+.eth{
+  position: relative;
+  font-size: 20px;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  color: lightgreen;
+  top: 10px;
+  left: 50px;
+}
+  
+.green{
+  position: relative;
+  top: 10px;
+  box-align: inherit;
+  font-size: 20px;
+  margin: 100px 113px;
+  padding: 10px;
+  border: 3px solid rgb(129, 196, 196);
+  border-radius: 10px;
+  text-transform: uppercase;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: lightgreen;
+}
+
+.red{
+  right: 10px;
+  position: relative;
+  top: 10px;
+  box-align: inherit;
+  font-size: 20px;
+  margin: 100px 0px;
+  padding: 10px;
+  text-transform: uppercase;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: lightgreen;
+}
