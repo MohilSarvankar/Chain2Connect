@@ -69,7 +69,7 @@
     border: 3px solid rgb(7, 19, 19);
     border-radius: 10px;
     padding: 10px;
-    background-image: url(/src/images/blockchain.jpg);
+    background-image: url(/images/blockchain.jpg);
     background-repeat: round;
     background-size: cover;
 }
