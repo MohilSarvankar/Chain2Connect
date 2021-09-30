@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C2C - NGO Registration</title>
-    <link rel="stylesheet" href="/src/css/regis_ngo_style.css">
-    <link rel="stylesheet" href="/src/css/header.css">
-    <link rel="shortcut icon" href="/src/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/regis_ngo_style.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container2">
         <a class="blue">
             <div class="img">
-                <img src="/src/images/C2C.png" alt="Loading" width="45px">
+                <img src="/images/C2C.png" alt="Loading" width="45px">
             </div>
             <i class="eth">CHAIN2CONNECT</i>   
         </a>
@@ -26,24 +26,24 @@
             <div class="inputs">  
                 <b style="font-size: 22px; text-align: center;">NGO Registration</b><br>
                 <label>NGO Name</label>
-                <input type="text" placeholder="NGO Name" class="input-field"/>
+                <input type="text" placeholder="NGO Name" class="input-field" required autofocus/>
                 <label>Email Address</label>
-                <input type="email" placeholder="Email Address" class="input-field"/>
+                <input type="email" placeholder="Email Address" class="input-field" required/>
                 <label>Password</label>
-                <input type="password" placeholder="Password" class="input-field"/>
+                <input type="password" placeholder="Password" class="input-field" required/>
                 <label>Ngo Address</label>
-                <textarea class="input-field1" name="address" id="ngoadd" placeholder="Ngo Address"></textarea>
+                <textarea class="input-field1" name="address" id="ngoadd" placeholder="Ngo Address" required></textarea>
                 <label>Ngo Description</label>
                 <textarea class="input-field1" name="Description" id="ngodes" placeholder="Ngo Description"></textarea>
                 <div class="text">
-                    <input type="checkbox"/>
+                    <input type="checkbox" required/>
                     <p>I accept the  <a href="#">terms & conditions</a></p>
                 </div>
                 <div class="btn">
-                    <a href="/src/html/login_page.html">
+                    <a href="/html/login_page.html">
                     <button>Create Account</button></a>
                 </div>
-                <p>Already have an account? <a href="/src/html/login_page.html">Login Here</a></p>
+                <p>Already have an account? <a href="/html/login_page.html">Login Here</a></p>
                 </div>
         </div>
     </div>
