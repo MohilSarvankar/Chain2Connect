@@ -1,21 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>C2C - Chain2Connect</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/css/home_style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title></title>
 </head>
 
 <body>
+
     <header>
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
@@ -42,45 +47,50 @@
     <section>
         <div class="bg-image container-fluid" style="
         background-image: url('/images/b3.jpg');
-        height: max-content;">
-            <div class="container d-flex justify-content-center">
-                <div class="card-deck my-4">
-                    <div class="card my-4" style="max-width: 23rem;">
-                        <img src="/images/ngo.jfif" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">NGO</h5>
-                            <p class="card-text">Enabling NGO - Donor interface become more transparent & streamlined.
-                                Also to make mobilisation of financial resources and procurement of relief materials
-                                integrated on a blockchain enabled smart contract framework. Beneficiary satisfaction
-                                and Govt regulations ensured.</p>
-                        </div>
-                        <div class="card-footer text-center">
-                            <a href="login2.html">
-                                <button type="button" class="btn btn-primary col-6 m-2">Start</button>
-                            </a>
-                        </div>
+        ">
+            <div class="container-fluid d-flex py-5">
+                <div class="card bg-dark text-light border-dark my-5 mx-auto"
+                    style="width: 26rem; border-radius: 1rem; --bs-bg-opacity: 0.6">
+                    <div class="mx-auto mb-3 mt-4">
+                        <h5 class="card-title">Login</h5>
                     </div>
-                    <div class="card my-4" style="max-width: 23rem;">
-                        <img src="/images/startup.jfif" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">STARTUP</h5>
-                            <p class="card-text">Connecting investors and startup founders via Next Gen Blockchain based
-                                application to enable young entrepreneurs garner seed capital/crowdfunding according to
-                                funtional requirements of their startups. Converging B2B, B2C, B2G transactions of
-                                startups in better way.</p>
+                    <form class="mx-3 mb-3">
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col">
+                                <input type="email" placeholder="Email Address" class="form-control" id="inputEmail3">
+                            </div>
                         </div>
-                        <div class="card-footer text-center">
-                            <a href="#">
-                                <button type="button" class="btn btn-primary col-6 m-2">Start</button>
-                            </a>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-3 col-form-label">Password</label>
+                            <div class="col">
+                                <input type="password" placeholder="Password" class="form-control" id="inputPassword3">
+                            </div>
                         </div>
-                    </div>
-
+                        <div class="row mb-4">
+                            <label for="inputPassword3" class="col-sm-3 col-form-label">Usertype</label>
+                            <div class="col">
+                                <select class="form-select">
+                                    <option selected>Select Usertype</option>
+                                    <option value="donor">Donar</option>
+                                    <option value="ngo">NGO</option>
+                                    <option value="beneficiary">Beneficiary</option>
+                                    <option value="store">Cooperative Store</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="text-center mb-3">
+                            <button type="submit" class="btn btn-primary col-4">Login</button>
+                        </div>
+                        <div class="text-center">
+                            <p><small>Don't have an account? <a href="#">Register Here</a></small></p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-
     </section>
+    <!-- Optional JavaScript; choose one of the two! -->
 
     <footer>
         <div class="footer-dark">
@@ -125,6 +135,16 @@
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     </footer>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
 </body>
 
 </html>
