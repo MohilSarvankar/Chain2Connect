@@ -4,25 +4,10 @@ var account = '0x0';
 var web3;
 var app;
 
-//Basic Actions Section
-const onboardButton = document.getElementById('ethConnect');
-
 const isMetaMaskInstalled = () => {
     //Have to check the ethereum binding on the window object to see if it's installed
     const { ethereum } = window;
     return Boolean(ethereum && ethereum.isMetaMask);
-};
-
-const onClickConnect = async () => {
-    try {
-        // Will open the MetaMask UI
-        await ethereum.request({ method: 'eth_requestAccounts' });
-        await loadAccount();
-
-    } catch (e) {
-        console.error(e);
-        window.alert("Failed to load ethereum account!!")
-    }
 }
 
 //loads the contract deployed on current network
@@ -35,16 +20,24 @@ const loadContract = async () => {
     }
     catch(e){
         console.error(e);
-        window.alert("Failed to load smart contract!!");
+        window.alert("Failed to load smart contract!");
+        window.location.replace("/html/login_page.html");
     }
 }
 
 //loads and shows the current account
 const loadAccount = async () => {
-    const accounts = await ethereum.request({ method: 'eth_accounts' });
-    document.getElementById("ethAccount").value = accounts[0];
-    account = accounts[0];
-    web3.eth.defaultAccount = account;
+    try {
+        // Will open the MetaMask UI
+        await ethereum.request({ method: 'eth_requestAccounts' });
+        const accounts = await ethereum.request({ method: 'eth_accounts' });
+        account = accounts[0];
+    } 
+    catch (error) {
+        console.error(e);
+        window.alert("Failed to load ethereum account!!");
+        window.location.replace("/html/login_page.html");
+    }
 }
 
 const MetaMaskClientCheck = async () => {
@@ -56,13 +49,11 @@ const MetaMaskClientCheck = async () => {
         web3 = new Web3(window.ethereum);
         web3Provider = web3.currentProvider;
         await loadContract();
-        //When the button is clicked we call this function to connect the users MetaMask Wallet
-        onboardButton.onclick = onClickConnect;
-        //The button is now disabled
-        onboardButton.disabled = false;
+        await loadAccount();
     }
 };
 
 await MetaMaskClientCheck();
 
 export var app;
+export var web3;

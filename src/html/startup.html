@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C2C - Startup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+</style>
+
+<body>
+    <header>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/C2C.png" width="32" height="32" class="d-inline-block align-top" alt="" />
+                </a>
+                <a class="navbar-brand text-light">Chain2Connect</a>
+                <a class="navbar-brand text-light" href="#" data-toggle="modal" data-target="#logoutModal">logout</a>
+            </nav>
+        </div>
+
+        <!-- Small modal -->
+        <div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Log Out <i class="fa"></i></h4>
+                        <button type="button" class="close navbar-left" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><i class="fa"></i> Are you sure you want to log-off? <br /></p>
+                        <div class="actionsBtns">
+                            <form action="/logout" method="post">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                <input type="submit" id="logout" class="btn btn-default btn-primary"
+                                    data-dismiss="modal" value="Logout" />
+                                <button class="btn btn-default" data-dismiss="modal">
+                                    Cancel
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="/images/startup6.jpg" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>First slide label</h3>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="/images/startup7.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Second slide label</h3>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="/images/startup3.jpg" alt="Third slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Third slide label</h3>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <!-- "https://source.unsplash.com/1600x550/?startup,idea," -->
+
+        <div class="container my-4">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <ul class="nav nav-tabs card-header-tabs bg-dark" id="bologna-list" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#activeRequest" role="tab" aria-controls="description"
+                                aria-selected="true">Active Requests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#completedRequest" role="tab" aria-controls="history"
+                                aria-selected="false">Completed Requests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#myRequest" role="tab" aria-controls="history"
+                                aria-selected="false">My Request</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#addRequest" role="tab" aria-controls="deals"
+                                aria-selected="false">Add Request</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services" role="tab" aria-controls="deals"
+                                aria-selected="false">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#myOrders" role="tab" aria-controls="myOrders"
+                                aria-selected="false">My Orders</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body bg-dark">
+                    <div class="tab-content mt-3 bg-dark">
+
+                        <div class="tab-pane active" id="activeRequest" role="tabpanel">
+
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Active Requests!</strong> You can see all active funding requests here.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <template id="requestTemplate">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Startup: </b><span id="showStName"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Description: </b><span id="showStDesc"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <div class="row align-items-start">
+                                                <div class="col">
+                                                    <b>Target Funding: </b><span id="showTgFunding"></span>
+                                                </div>
+                                                <div class="col">
+                                                    <b>Recieved Funding: </b><span id="showRcFunding"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-primary btn-lg mt-2"
+                                            id="requestDetails" data-toggle="modal"
+                                            data-target="#requestDetailsModal">Details</button>
+                                    </div>
+                                </div>
+
+                            </template>
+
+                            <div class="text-secondary text-center" id="noActiveRequest">
+                                <h3><strong>There are no active funding requests currently.</strong></h3>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane" id="completedRequest" role="tabpanel" aria-labelledby="history-tab">
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Completed Request!</strong> You can see all completed funding requests here.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="text-secondary text-center" id="noCompletedRequest">
+                                <h3><strong>There are no completed funding requests currently.</strong></h3>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane" id="myRequest" role="tabpanel" aria-labelledby="history-tab">
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>My Request!</strong> You can see your funding request here.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="text-secondary text-center" id="noMyRequest">
+                                <h3><strong>You don't have any funding request currently.</strong></h3>
+                            </div>
+
+                            <template id="myRequestTemplate">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Startup: </b><span id="showStName"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Description: </b><span id="showStDesc"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <div class="row align-items-start">
+                                                <div class="col">
+                                                    <b>Target Funding: </b><span id="showTgFunding"></span>
+                                                </div>
+                                                <div class="col">
+                                                    <b>Recieved Funding: </b><span id="showRcFunding"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-primary btn-lg mt-2"
+                                            id="myRequestDetails" data-toggle="modal"
+                                            data-target="#requestDetailsModal">Request Details</button>
+                                        <button type="button" class="btn btn-outline-success btn-lg mt-2 mx-2"
+                                            id="fundingDetails" data-toggle="modal"
+                                            data-target="#fundingDetailsModal">Funding Details</button>
+                                    </div>
+                                </div>
+
+                            </template>
+
+                        </div>
+
+                        <div class="modal fade bd-example-modal-lg" id="fundingDetailsModal" data-backdrop="static"
+                            data-keyboard="false" tabindex="-1" aria-labelledby="fundingDetailsModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" id="fundingDetailsModalLabel">Funding Details</h3>
+                                        <button type="button" class="btn-close" data-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Investor Name</th>
+                                                    <th scope="col">Investment</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="showInvestment">
+                                                <template id="investDetailTemp">
+                                                    <tr>
+                                                        <td scope="row" id="showInvestorCount"></td>
+                                                        <td id="showInvestorName"></td>
+                                                        <td id="showInvestedAmount"></td>
+                                                    </tr>
+                                                </template>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="requestDetailsModal" data-backdrop="static" data-keyboard="false"
+                            tabindex="-1" aria-labelledby="requestDetailsModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" id="requestDetailsModalLabel">Funding Request Details
+                                        </h3>
+                                        <button type="button" class="btn-close" data-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Startup: </b><span id="showStartName"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Description: </b><span id="showStartDesc"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Office Address: </b><span id="showStartAdd"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Email: </b><span id="showStartMail"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Current Ratio: </b><span id="showCurRatio"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Gross Profit Ratio: </b><span id="showGpRatio"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Accounts Recievable Turnover: </b><span id="showArTurnover"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Net Profit Margin: </b><span id="showNpMargin"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Total Debt: </b><span id="showTotDebt"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Burn rate: </b><span id="showBurnRate"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Revenue Generated: </b><span id="showRevGenerated"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Net Profit After Tax: </b><span id="showNpaTax"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Target Funding: </b><span id="showTargetFunding"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Recieved Funding: </b><span id="showRecievedFunding"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Spent Funding: </b><span id="showSpentFunding"></span>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="addRequest" role="tabpanel" aria-labelledby="deals-tab">
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <strong>Add Request!</strong> You can add your funding request here.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="alert alert-success" role="alert" id="requestCreateAlert" hidden>
+                                <strong>Congratulations!</strong> Funding request created successfully.
+                            </div>
+
+                            <div class="alert alert-danger" role="alert" id="requestCreateFailAlert" hidden>
+                                <strong>Sorry!</strong> Funding request not created.
+                            </div>
+
+                            <div class="card mb-3 p-3">
+                                <form id="createRequestForm">
+                                    <div class="form-group row">
+                                        <label for="startName" class="col-lg-2 col-sm-3 col-form-label">Startup
+                                            Name</label>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <input type="text" class="form-control" id="startName"
+                                                placeholder="Name of startup" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="startMail" class="col-lg-2 col-sm-3 col-form-label">Startup
+                                            Mail</label>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <input type="email" class="form-control" id="startMail"
+                                                placeholder="Email address of startup" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="startAdd" class="col-lg-2 col-sm-3 col-form-label">Office
+                                            Address</label>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <textarea id="startAdd" class="form-control"
+                                                placeholder="Startup's office address" required cols="30"
+                                                rows="2"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="startDesc" class="col-lg-2 col-sm-3 col-form-label">Startup
+                                            Description</label>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <textarea id="startDesc" class="form-control"
+                                                placeholder="Some description about startup" required cols="30"
+                                                rows="3"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="curRatio" class="col-lg-2 col-sm-3 col-form-label">Current
+                                            Ratio</label>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <input type="text" class="form-control" id="curRatio"
+                                                placeholder="Current ratio of startup (between 0 to 1)" maxlength="6"
+                                                required>
+                                            <div id="curRatioInvalid" class="text-danger"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="gpRatio" class="col-lg-2 col-sm-3 col-form-label">Gross Profit
+                                            Ratio</label>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <input type="text" class="form-control" id="gpRatio"
+                                                placeholder="Gross profit ratio of startup (between 0 to 1)"
+                                                maxlength="6" required>
+                                            <div id="gpRatioInvalid" class="text-danger"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="arTurnover" class="col-lg-3 col-sm-3 col-form-label">Account
+                                            Recievable Turnover</label>
+                                        <div class="col-lg-9 col-sm-9">
+                                            <input type="text" class="form-control" id="arTurnover"
+                                                placeholder="Account recievable turnover (x:y format)" required>
+                                            <div id="arTurnoverInvalid" class="text-danger"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="npMargin" class="col-lg-2 col-sm-3 col-form-label">Net Profit
+                                            Margin</label>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <input type="number" class="form-control" id="npMargin" min="-100" max="100"
+                                                placeholder="Net profit margin (-100 to 100 percent)" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="totDebt" class="col-lg-2 col-sm-3 col-form-label">Total Debt</label>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <input type="number" class="form-control" id="totDebt"
+                                                placeholder="Total debt amount" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="burnRate" class="col-lg-2 col-sm-3 col-form-label">Burn rate</label>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <input type="number" class="form-control" id="burnRate" min="-100" max="100"
+                                                placeholder="Burn rate (-100 to 100 percent)" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="revGenrated" class="col-lg-3 col-sm-3 col-form-label">Revenue
+                                            Generated</label>
+                                        <div class="col-lg-9 col-sm-9">
+                                            <input type="number" class="form-control" id="revGenrated"
+                                                placeholder="Revenue generated by startup" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="nrAftTax" class="col-lg-2 col-sm-3 col-form-label">Net Profit After
+                                            Tax</label>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <input type="number" class="form-control" id="nrAftTax"
+                                                placeholder="Net profit amount after tax" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="targetFund" class="col-lg-2 col-sm-3 col-form-label">Target
+                                            Funding</label>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <input type="number" class="form-control" id="targetFund" min="0"
+                                                placeholder="Target funding required by startup" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-outline-primary btn-lg my-2">Create Funding
+                                            Request</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane" id="services" role="tabpanel" aria-labelledby="store-tab">
+
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Services!</strong> You can see all available services here.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <template id="serviceTemplate">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Service: </b><span id="showServiceName"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Details: </b><span id="showServiceDetails"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Provided by: </b><span id="showProviderName"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <div class="row align-items-start">
+                                                <div class="col">
+                                                    <b>Type: </b><span id="showServiceType"></span>
+                                                </div>
+                                                <div class="col">
+                                                    <b>Price: </b><span id="showServicePrice"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-primary btn-lg mt-2" id="service"
+                                            data-toggle="modal" data-target="#serviceOrderDetails">Order Now</button>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <div class="text-secondary text-center" id="noServices">
+                                <h3><strong>There are no services available currently.</strong></h3>
+                            </div>
+
+                        </div>
+
+                        <div class="modal fade" id="serviceOrderDetails" data-backdrop="static" data-keyboard="false"
+                            tabindex="-1" aria-labelledby="serviceOrderDetailsLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" id="serviceOrderDetailsLabel">Order Details
+                                        </h3>
+                                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"
+                                            id="closeModal"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Startup Name: </b><span class="float-right" id="orderStartName"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Service Ordered: </b><span class="float-right"
+                                                id="orderServiceName"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Service Type: </b><span class="float-right" id="orderServiceType"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Service Cost: </b><span class="float-right" id="orderServiceCost"></span>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                            id="closeModal">Close</button>
+                                        <button type="button" id="orderService" class="btn btn-primary">Order</button>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="myOrders" role="tabpanel">
+
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>My Orders!</strong> You can see your orders here.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div id="myDeliveredOrders"></div>
+                            <div id="myNotDeliveredOrders"></div>
+                            <div id="myPayedOrders"></div>
+
+                            <template id="myOrderTemplate">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Service: </b><span id="showServiceName"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <b>Details: </b><span id="showServiceDetails"></span>
+                                        </div>
+                                        <div class="col-sm-12 bg-light p-3 border mb-2">
+                                            <div class="row align-items-start">
+                                                <div class="col">
+                                                    <b>Type: </b><span id="showServiceType"></span>
+                                                </div>
+                                                <div class="col">
+                                                    <b>Cost: </b><span id="showServiceCost"></span>
+                                                </div>
+                                                <div class="col">
+                                                    <b>Status: </b><span id="showOrderStatus"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="showPaymentDetails">
+                                            <div class="col-sm-12 bg-light p-3 border mb-2">
+                                                <b>Payment Description: </b><span id="showPaymentDesc"></span>
+                                            </div>
+                                        </div> 
+                                        <button type="button" class="btn btn-outline-primary btn-lg mt-2" id="orderPay"
+                                            data-toggle="modal" data-target="#orderPayment">Proceed to pay</button>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <div class="modal fade" id="orderPayment" data-backdrop="static" data-keyboard="false"
+                                tabindex="-1" aria-labelledby="orderPaymentLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <form action="" id="orderPaymentForm">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title" id="orderPaymentLabel">Payment Details
+                                                </h3>
+                                                <button type="button" class="btn-close" data-dismiss="modal"
+                                                    aria-label="Close" id="closeModal"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3 row">
+                                                    <label for="payAmount"
+                                                        class="col-sm-3 col-form-label">Amount</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" id="payAmount" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 row">
+                                                    <label for="payDesc"
+                                                        class="col-sm-3 col-form-label">Description</label>
+                                                    <div class="col-sm-9">
+                                                        <textarea id="payDesc" class="form-control" rows="3"
+                                                            placeholder="Payment Description" required></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-check mx-2 mt-3">
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1"
+                                                        required>
+                                                    <label class="form-check-label" for="exampleCheck1">We got the
+                                                        services provided by the service provider.</label>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                                    id="closeModal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Pay</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-secondary text-center" id="noOrders">
+                                <h3><strong>You haven't ordered any products till now.</strong></h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/web3.min.js"></script>
+    <script src="/js/truffle-contract.js"></script>
+    <script type="module" src="/js/initialise2.js"></script>
+    <script type="module" src="/js/startup.js"></script>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<script>
+    $("#bologna-list a").on("click", function (e) {
+        e.preventDefault();
+        $(this).tab("show");
+    });
+</script>
+
+</html>

@@ -5,43 +5,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C2C - UserType</title>
-    <link rel="stylesheet" href="/css/usertype_style.css">
-    <link rel="stylesheet" href="/css/header.css">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"/>
 </head>
-<body>
 
+<style>
+    *{
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .gradient-custom {
+        background-image: url('https://source.unsplash.com/1600x800/?donation,ngo');
+		background: #6a11cb;
+
+/* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+    }
+</style>
+
+<body>
     <header>
-    <div class="container2">
-        <a class="blue">
-            <div class="img">
-                <img src="/images/C2C.png" alt="Loading" width="45px">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <a class="navbar-brand" href="#">
+                <img src="/images/C2C.png" width="32" height="32" class="d-inline-block align-top" alt="">
+            </a>
+            <a class="navbar-brand text-light">Chain2Connect</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/html/home_page.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                </ul>
             </div>
-            <i class="eth">CHAIN2CONNECT</i>   
-        </a>
-        <i class="green">New way of Donating Money</i>
-        <i class="red">Smart Contract for NGOs and START-UPs using Blockchain</i>
-    </div>
+        </nav>
     </header>
 
-    <div class="image" style="background-image: url(/images/startup1.jpg);">
-        <div class="container" style="height: 300px;">
-            <div class="inputs" style="height: 250px;">
-                <label style="font-size: 25px; margin-bottom: 3px;"> <b>Who are you?</b></label>
-                <div class="btn">
-                    <a href="/html/regis_page_investor.html">
-                    <button>Investor</button></a>
-                </div>
-                <div class="btn">
-                    <a href="/html/regis_page_ngo.html">
-                    <button>Startup</button></a>
-                </div>
-                <div class="btn">
-                    <a href="/html/regis_service_provide.html">
-                    <button>Service Provider</button></a>
+    <section class="vh-100 gradient-custom ">
+        <div class="container px-1 py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-left h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-4">
+                    <div class="card bg-dark text-white mt-5 mb-5 pt-2 pb-2" style="border-radius: 1rem;">
+                        <div class="card-body py-5 px-4 text-left">
+
+                            <div class="mb-md-mt-md-2">
+
+                                <h2 class="fw-bold mb-4 text-uppercase">USERTYPE</h2>
+                                <p class="text-white-50 mb-4">Please select your usertype!</p>
+
+                                <a href="regis_page_investor.html"><button class="btn btn-outline-light btn-block btn-lg px-6 mb-4" type="button">Investor</button></a>  
+                                <a href="regis_page_startup.html"><button class="btn btn-outline-light btn-block btn-lg px-6 mb-4" type="button">Startup</button></a>
+                                <a href="regis_service_provide.html"><button class="btn btn-outline-light btn-block btn-lg px-6 mb-4" type="button">Service Provider</button></a>
+
+                                <div>
+                                    <p class="mt-2">Already have an account? <a href="login_startup.html" class="text-white-50 fw-bold">Log In</a></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div>    
+    </section>
 </body>
 </html>

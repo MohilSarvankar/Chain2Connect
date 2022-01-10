@@ -28,10 +28,10 @@ const onClickConnect = async () => {
 //loads the contract deployed on current network
 const loadContract = async () => {
     try{
-        app = await $.getJSON('/build/contracts/Chain2Connect.json');
-        contracts.Chain2Connect = TruffleContract(app);
-        contracts.Chain2Connect.setProvider(web3Provider);
-        app = await contracts.Chain2Connect.deployed();
+        app = await $.getJSON('/build/contracts/CrowdFunding.json');
+        contracts.CrowdFunding = TruffleContract(app);
+        contracts.CrowdFunding.setProvider(web3Provider);
+        app = await contracts.CrowdFunding.deployed();
     }
     catch(e){
         console.error(e);
